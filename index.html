@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>LeanDev — Sistemas y bots de WhatsApp para comercios de Tucumán</title>
+<meta name="description" content="Bots que contestan tu WhatsApp y toman el pedido, control de clientes y stock, y páginas web. Para comercios de San Miguel de Tucumán. Demo gratis con tus datos.">
+<link rel="canonical" href="https://leandev.com.ar/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="LeanDev">
+<meta property="og:title" content="Sistemas que atienden tu negocio cuando vos no llegás">
+<meta property="og:description" content="Bots de WhatsApp, clientes y stock, y páginas web para comercios de Tucumán. Te muestro una demo funcionando con tus datos, gratis.">
+<meta property="og:url" content="https://leandev.com.ar/">
+<meta property="og:image" content="https://leandev.com.ar/img/og-leandev.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf9f6">
+
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://leandev.com.ar/#business",
+  "name": "LeanDev",
+  "description": "Bots de WhatsApp que toman pedidos, sistemas de clientes y stock, y páginas web para comercios de San Miguel de Tucumán.",
+  "url": "https://leandev.com.ar/",
+  "telephone": "+5493814627108",
+  "image": "https://leandev.com.ar/img/og-leandev.png",
+  "priceRange": "$$",
+  "founder": { "@type": "Person", "name": "Leandro Núñez" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Miguel de Tucumán",
+    "addressRegion": "Tucumán",
+    "addressCountry": "AR"
+  },
+  "areaServed": { "@type": "City", "name": "San Miguel de Tucumán" },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  }]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Tengo que cambiar cómo trabajo hoy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Lo armo alrededor de lo que ya hacés. Si tomás los pedidos en un cuaderno y te sirve, el sistema convive con eso. La idea es sacarte trabajo, no darte uno nuevo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si se rompe un sábado a la noche?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Me escribís al mismo WhatsApp y lo resuelvo. El soporte de lunes a sábado está incluido en el abono, y un sábado a la noche es justamente cuando más lo necesitás."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito comprar algo más?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La línea de WhatsApp y el lugar donde vive el sistema los pongo yo, y ya están incluidos en el abono mensual. Vos necesitás la comandera que ya tenés y un celular."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Y si después quiero agregar algo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los cambios entran en el abono. Si agregás productos, cambiás precios o querés que el bot pregunte algo distinto, me decís y lo hago."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda en estar andando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La demo te la armo en dos o tres días. Si decidís avanzar, el bot queda funcionando en una semana. El sistema de clientes y stock lleva un poco más porque hay que pasar lo que ya tenés."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="logo" href="#inicio" aria-label="LeanDev, inicio">
+      <svg class="logo__mark" viewBox="0 0 30 40" width="24" height="32" aria-hidden="true" focusable="false">
+        <polygon points="6,11 17,11 11,29 0,29" fill="var(--brand)"/>
+        <polygon points="19,0 30,0 24,18 13,18" fill="var(--paper-3)"/>
+        <polygon points="13,22 24,22 18,40 7,40" fill="var(--brand)"/>
+      </svg>
+      <span class="logo__word">Lean<span class="logo__word-accent">Dev</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#como-trabajo">Cómo trabajo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="btn btn--wa btn--sm" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20vi%20tu%20pagina%20y%20quiero%20que%20me%20cuentes." target="_blank" rel="noopener noreferrer">
+      <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1.01 2.54c.12.17 1.73 2.65 4.2 3.71.59.25 1.04.4 1.4.52.59.18 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
+      Escribime
+    </a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ==================== 1. HERO ==================== -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero__grid">
+
+      <div class="hero__copy">
+        <p class="eyebrow">San Miguel de Tucumán</p>
+
+        <h1 class="hero__title">
+          Sistemas que atienden tu negocio<br>
+          <em>cuando vos no llegás</em>
+        </h1>
+
+        <p class="hero__sub">
+          Bots que contestan el WhatsApp, control de clientes y stock, y páginas
+          web. Para comercios de Tucumán. Los instalo, los mantengo, y el que
+          te atiende soy yo.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--wa btn--lg" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20vi%20tu%20pagina%20y%20quiero%20que%20me%20cuentes." target="_blank" rel="noopener noreferrer">
+            <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1.01 2.54c.12.17 1.73 2.65 4.2 3.71.59.25 1.04.4 1.4.52.59.18 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
+            Escribime por WhatsApp
+          </a>
+          <p class="hero__micro">
+            Te muestro una demo funcionando con tus datos.<br>
+            <strong>Gratis y sin compromiso.</strong>
+          </p>
+        </div>
+
+        <ul class="hero__proof">
+          <li>Demo antes de pagar</li>
+          <li>Sin cambiar cómo trabajás</li>
+          <li>Soporte de lunes a sábado</li>
+        </ul>
+      </div>
+
+      <!-- ---------- SIGNATURE: el ticket de comandera ---------- -->
+      <div class="hero__ticket">
+        <div class="ticket">
+          <div class="ticket__head" aria-hidden="true">
+            <span class="ticket__lamp"></span> COMANDERA · COCINA
+          </div>
+
+          <div class="ticket__paper">
+            <div class="ticket__printhead" aria-hidden="true"></div>
+
+            <pre class="ticket__body" role="img" aria-label="Ejemplo de un pedido que el bot tomó solo y mandó a imprimir a la comandera del local"><span class="ticket__line" style="--i:0">     R O T I S E R I A</span><span class="ticket__line" style="--i:1">     EL BUEN SABOR</span><span class="ticket__line ticket__rule" style="--i:2">--------------------------</span><span class="ticket__line" style="--i:3">PEDIDO #0148    SAB 21:47</span><span class="ticket__line ticket__rule" style="--i:4">--------------------------</span><span class="ticket__line" style="--i:5">2  MILANESA NAPOL.  18.000</span><span class="ticket__line" style="--i:6">1  PAPAS GRANDES     6.500</span><span class="ticket__line" style="--i:7">1  COCA 1.5 LTS      4.200</span><span class="ticket__line ticket__rule" style="--i:8">--------------------------</span><span class="ticket__line" style="--i:9">ENVIO  Mate de Luna 1840</span><span class="ticket__line" style="--i:10">PAGO   Transferencia OK</span><span class="ticket__line ticket__rule" style="--i:11">--------------------------</span><span class="ticket__line ticket__total" style="--i:12">TOTAL             $28.700</span><span class="ticket__line ticket__rule" style="--i:13">--------------------------</span><span class="ticket__line ticket__note" style="--i:14">  Lo tomo el bot 21:47</span><span class="ticket__line ticket__note" style="--i:15">  Nadie tuvo que contestar</span></pre>
+          </div>
+        </div>
+        <p class="ticket__caption">Así le llega el pedido a tu cocina. Solo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 2. EL PROBLEMA ==================== -->
+  <section class="problema" aria-labelledby="t-problema">
+    <div class="wrap">
+      <h2 class="section-title" id="t-problema">
+        Si algo de esto te pasa, es de esto que estoy hablando
+      </h2>
+
+      <ul class="problema__list">
+        <li class="pain">
+          <span class="pain__obj" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect x="8" y="2" width="16" height="28" rx="3"/><line x1="13" y1="26" x2="19" y2="26"/></svg>
+          </span>
+          <p>El sábado a la noche el WhatsApp explota y no llegás a leer todo.</p>
+        </li>
+        <li class="pain">
+          <span class="pain__obj" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M3 12h26v4H3z"/><path d="M6 16v12M26 16v12M3 28h26"/></svg>
+          </span>
+          <p>Te preguntan si tenés una pieza y tenés que dejar el mostrador para ir a fijarte.</p>
+        </li>
+        <li class="pain">
+          <span class="pain__obj" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect x="5" y="3" width="22" height="26" rx="2"/><line x1="10" y1="10" x2="22" y2="10"/><line x1="10" y1="16" x2="22" y2="16"/><line x1="10" y1="22" x2="17" y2="22"/></svg>
+          </span>
+          <p>Los clientes están en una planilla, en un cuaderno y algunos solo en tu cabeza.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 3. SERVICIOS ==================== -->
+  <section class="servicios" id="servicios" aria-labelledby="t-servicios">
+    <div class="wrap">
+      <p class="eyebrow">Lo que hago</p>
+      <h2 class="section-title" id="t-servicios">Tres cosas, y las tres andan</h2>
+
+      <div class="servicios__list">
+
+        <article class="serv">
+          <div class="serv__head">
+            <h3 class="serv__name">Bot de pedidos<br>para WhatsApp</h3>
+            <p class="serv__what">
+              Contesta solo, toma el pedido completo y lo imprime en la
+              comandera que ya tenés.
+            </p>
+          </div>
+          <ul class="serv__bullets">
+            <li>Atiende a las 3 de la mañana y un sábado lleno igual que un martes vacío.</li>
+            <li>Te pasa la dirección, la forma de pago y el total ya calculado.</li>
+            <li>Vos ves todo, y podés meterte a responder cuando quieras.</li>
+          </ul>
+          <p class="serv__price">
+            <span class="serv__price-from">desde</span>
+            <span class="serv__price-main">$280.000</span>
+            <span class="serv__price-monthly">+ $95.000 por mes</span>
+          </p>
+          <a class="btn btn--wa btn--block" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20PEDIDOS." target="_blank" rel="noopener noreferrer">Preguntar por el bot</a>
+        </article>
+
+        <article class="serv">
+          <div class="serv__head">
+            <h3 class="serv__name">Sistema de clientes<br>y stock</h3>
+            <p class="serv__what">
+              Buscás un cliente por nombre y en dos segundos ves todo lo que
+              te compró y lo que te debe.
+            </p>
+          </div>
+          <ul class="serv__bullets">
+            <li>Historial de compras y cuenta corriente, sin planillas sueltas.</li>
+            <li>Sabés qué tenés y qué se está por acabar sin ir al depósito.</li>
+            <li>Entra desde el celular del mostrador y desde la compu.</li>
+          </ul>
+          <p class="serv__price">
+            <span class="serv__price-from">desde</span>
+            <span class="serv__price-main">$350.000</span>
+            <span class="serv__price-monthly">+ $55.000 por mes</span>
+          </p>
+          <a class="btn btn--wa btn--block" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20CLIENTES." target="_blank" rel="noopener noreferrer">Preguntar por clientes y stock</a>
+        </article>
+
+        <article class="serv">
+          <div class="serv__head">
+            <h3 class="serv__name">Página web</h3>
+            <p class="serv__what">
+              Para que cuando alguien busque lo que vos vendés en Tucumán,
+              te encuentre a vos.
+            </p>
+          </div>
+          <ul class="serv__bullets">
+            <li>Aparecés en Google y en el mapa, con tu dirección y tu horario.</li>
+            <li>Se ve bien en el celular, que es de donde te van a mirar.</li>
+            <li>Esta misma página que estás viendo la hice yo. Esto es lo que te entrego.</li>
+          </ul>
+          <p class="serv__price">
+            <span class="serv__price-from">desde</span>
+            <span class="serv__price-main">$250.000</span>
+            <span class="serv__price-monthly">+ $25.000 por mes</span>
+          </p>
+          <a class="btn btn--wa btn--block" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20WEB." target="_blank" rel="noopener noreferrer">Preguntar por la página</a>
+        </article>
+
+      </div>
+
+      <p class="servicios__note">
+        El abono incluye la línea de WhatsApp, el servidor, los cambios que
+        necesites y soporte de lunes a sábado.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== 4. CÓMO TRABAJO ==================== -->
+  <section class="pasos" id="como-trabajo" aria-labelledby="t-pasos">
+    <div class="wrap">
+      <p class="eyebrow">Sin sorpresas</p>
+      <h2 class="section-title" id="t-pasos">Cómo trabajo</h2>
+
+      <ol class="pasos__list">
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">01</span>
+          <h3 class="paso__title">Me escribís y me contás qué te complica.</h3>
+          <p>Diez minutos por WhatsApp. No hace falta que sepas nada de sistemas.</p>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">02</span>
+          <h3 class="paso__title">Te armo una demo con tus datos.</h3>
+          <p>Gratis. La ves funcionando con tus productos antes de decidir nada.</p>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">03</span>
+          <h3 class="paso__title">Si te sirve, lo instalo.</h3>
+          <p>Sin que cambies cómo trabajás. Lo armo alrededor de lo que ya hacés.</p>
+        </li>
+        <li class="paso">
+          <span class="paso__num" aria-hidden="true">04</span>
+          <h3 class="paso__title">Te acompaño todos los meses.</h3>
+          <p>Cambios de precios, ajustes y soporte. Me tenés en el WhatsApp.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==================== 5. GARANTÍA ==================== -->
+  <section class="garantia" aria-labelledby="t-garantia">
+    <div class="wrap">
+      <h2 class="section-title" id="t-garantia">Por qué no estás arriesgando nada</h2>
+      <ul class="garantia__list">
+        <li>
+          <h3>Ves la demo antes de pagar un peso.</h3>
+          <p>Funcionando, con tus productos y tus precios. Si no te convence, no seguimos.</p>
+        </li>
+        <li>
+          <h3>Tus planillas quedan intactas.</h3>
+          <p>Paso una copia y comparás vos. Lo que ya tenés no se toca.</p>
+        </li>
+        <li>
+          <h3>Soy de Tucumán.</h3>
+          <p>Si algo falla un sábado a la noche, me tenés en el WhatsApp. No es un soporte de otro país.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 6. PREGUNTAS FRECUENTES ==================== -->
+  <section class="faq" aria-labelledby="t-faq">
+    <div class="wrap wrap--narrow">
+      <h2 class="section-title" id="t-faq">Preguntas que me hacen siempre</h2>
+
+      <div class="faq__list">
+        <details class="qa">
+          <summary>¿Tengo que cambiar cómo trabajo hoy?</summary>
+          <div class="qa__body"><p>No. Lo armo alrededor de lo que ya hacés. Si tomás los pedidos en un cuaderno y te sirve, el sistema convive con eso. La idea es sacarte trabajo, no darte uno nuevo.</p></div>
+        </details>
+
+        <details class="qa">
+          <summary>¿Qué pasa si se rompe un sábado a la noche?</summary>
+          <div class="qa__body"><p>Me escribís al mismo WhatsApp y lo resuelvo. El soporte de lunes a sábado está incluido en el abono, y un sábado a la noche es justamente cuando más lo necesitás.</p></div>
+        </details>
+
+        <details class="qa">
+          <summary>¿Necesito comprar algo más?</summary>
+          <div class="qa__body"><p>No. La línea de WhatsApp y el lugar donde vive el sistema los pongo yo, y ya están incluidos en el abono mensual. Vos necesitás la comandera que ya tenés y un celular.</p></div>
+        </details>
+
+        <details class="qa">
+          <summary>¿Y si después quiero agregar algo?</summary>
+          <div class="qa__body"><p>Los cambios entran en el abono. Si agregás productos, cambiás precios o querés que el bot pregunte algo distinto, me decís y lo hago.</p></div>
+        </details>
+
+        <details class="qa">
+          <summary>¿Cuánto tarda en estar andando?</summary>
+          <div class="qa__body"><p>La demo te la armo en dos o tres días. Si decidís avanzar, el bot queda funcionando en una semana. El sistema de clientes y stock lleva un poco más porque hay que pasar lo que ya tenés.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. CIERRE ==================== -->
+  <section class="cierre" id="contacto" aria-labelledby="t-cierre">
+    <div class="wrap wrap--narrow">
+      <h2 class="cierre__title" id="t-cierre">
+        Contame qué te está complicando
+      </h2>
+      <p class="cierre__sub">
+        Diez minutos por WhatsApp y te digo si te puedo ayudar. Si no te puedo
+        ayudar, también te lo digo.
+      </p>
+
+      <a class="btn btn--wa btn--lg" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20una%20demo%20gratis." target="_blank" rel="noopener noreferrer">
+        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1.01 2.54c.12.17 1.73 2.65 4.2 3.71.59.25 1.04.4 1.4.52.59.18 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
+        Escribime por WhatsApp
+      </a>
+
+      <p class="cierre__phone">
+        O agendame:
+        <a class="cierre__number" href="tel:+5493814627108">381&nbsp;462&#8209;7108</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="logo logo--footer" href="#inicio" aria-label="LeanDev, volver arriba">
+      <svg class="logo__mark" viewBox="0 0 30 40" width="20" height="27" aria-hidden="true" focusable="false">
+        <polygon points="6,11 17,11 11,29 0,29" fill="var(--brand)"/>
+        <polygon points="19,0 30,0 24,18 13,18" fill="var(--paper-3)"/>
+        <polygon points="13,22 24,22 18,40 7,40" fill="var(--brand)"/>
+      </svg>
+      <span class="logo__word">Lean<span class="logo__word-accent">Dev</span></span>
+    </a>
+
+    <p class="footer__meta">
+      Leandro Núñez · San Miguel de Tucumán, Argentina<br>
+      <a href="tel:+5493814627108">381&nbsp;462&#8209;7108</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
