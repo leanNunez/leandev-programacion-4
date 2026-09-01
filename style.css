@@ -449,3 +449,325 @@ main > section { padding-block: var(--section-y); }
   margin-top: var(--s-1);
 }
 .cierre :focus-visible { outline-color: var(--whatsapp); }
+
+/* ---------- Hero (Grid en el layout de dos columnas) ----------------------- */
+
+.hero__grid { display: grid; gap: var(--s-6); }
+
+@media (min-width: 940px) {
+  .hero { padding-top: var(--s-6); }
+  .hero__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: var(--s-5);
+  }
+}
+
+/* ---------- SIGNATURE: ticket de comandera --------------------------------- */
+
+/* El ticket NO se rota: rotar un elemento con texto lo manda a una capa
+   compuesta y le resamplea los glifos — se lee borroso, peor en celular.
+   La inclinación se la lleva una hoja de respaldo que no tiene texto. */
+.ticket {
+  position: relative;
+  width: min(320px, 100%);
+  filter: drop-shadow(0 12px 28px rgb(20 20 15 / 14%));
+}
+.ticket::before {
+  content: "";
+  position: absolute;
+  inset: 20px -7px -10px -7px;
+  z-index: -1;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-3);
+  border-radius: 2px;
+  transform: rotate(-2.5deg);
+}
+
+.ticket__paper {
+  position: relative;
+  --zig-w: 14px;
+  --zig-h: 8px;
+  background: #fffdf8;
+  /* Trama tenue de papel térmico. Período de 7px: por debajo de 6px cae
+     sobre la grilla de píxeles del dispositivo y hace moiré. */
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgb(20 20 15 / 2%) 0 1px,
+    transparent 1px 7px
+  );
+  padding: var(--s-3) var(--s-2) var(--s-4);
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      top / var(--zig-w) var(--zig-h) repeat-x,
+    linear-gradient(#000 0 0)
+      center / 100% calc(100% - var(--zig-h) * 2) no-repeat,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--zig-w) var(--zig-h) repeat-x;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      top / var(--zig-w) var(--zig-h) repeat-x,
+    linear-gradient(#000 0 0)
+      center / 100% calc(100% - var(--zig-h) * 2) no-repeat,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--zig-w) var(--zig-h) repeat-x;
+}
+
+/* El cabezal: único lugar fuera de los CTA donde aparece el azul. */
+.ticket__printhead {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--brand);
+  box-shadow: 0 0 8px rgb(43 79 232 / 55%);
+  opacity: 0;
+  pointer-events: none;
+  animation: ticket-printhead 1620ms var(--ease) forwards;
+}
+
+.ticket__body {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.75;
+  color: #2a2a22;
+  white-space: pre;
+  overflow: hidden;
+}
+
+.ticket__line {
+  display: block;
+  opacity: 0;
+  animation: ticket-print 260ms var(--ease) forwards;
+  animation-delay: calc(var(--i) * 85ms);
+}
+.ticket__rule { color: #a8a396; }
+.ticket__total { font-weight: 700; font-size: 0.875rem; color: var(--ink); }
+.ticket__note { color: var(--ink-3); font-size: 0.6875rem; }
+
+@keyframes ticket-print {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes ticket-printhead {
+  0%   { opacity: 1; top: 0; }
+  92%  { opacity: 1; top: 100%; }
+  100% { opacity: 0; top: 100%; }
+}
+
+.ticket__caption {
+  margin-top: var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+/* ---------- El problema (Grid) ---------------------------------------------- */
+
+.problema {
+  background: var(--warm-wash);
+  border-block: 1px solid color-mix(in srgb, var(--warm) 15%, transparent);
+}
+.problema .section-title { color: var(--warm); max-width: 24ch; }
+
+.problema__list { display: grid; gap: var(--s-3); }
+
+.pain {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-2);
+  align-items: start;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+  box-shadow: var(--shadow-sm);
+}
+.pain p { font-size: var(--t-md); line-height: var(--lh-snug); font-weight: 500; }
+
+.pain__obj svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: var(--warm);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 800px) {
+  .problema__list { grid-template-columns: repeat(3, 1fr); gap: var(--s-3); }
+  .pain { grid-template-columns: 1fr; gap: var(--s-3); }
+}
+
+/* ---------- Servicios (Grid) ------------------------------------------------ */
+
+.servicios__list { display: grid; gap: var(--s-4); }
+
+/* Motivo del isotipo: la barra paralelogramo. Mismo ángulo que el logo. */
+.serv {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--paper-3);
+  border-radius: var(--r-lg);
+  padding: var(--s-4) var(--s-3);
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.serv::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 10px;
+  height: 120%;
+  background: var(--brand);
+  transform: skewX(var(--skew));
+  transform-origin: top;
+}
+.serv:hover { box-shadow: var(--shadow-lift); border-color: transparent; }
+
+.serv__name {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  line-height: var(--lh-heading);
+  text-transform: uppercase;
+  letter-spacing: var(--track-display);
+  margin-bottom: var(--s-2);
+}
+.serv__what { color: var(--ink-2); font-size: var(--t-base); }
+
+.serv__bullets { display: grid; gap: var(--s-2); }
+.serv__bullets li {
+  position: relative;
+  padding-left: var(--s-3);
+  font-size: var(--t-base);
+  color: var(--ink-2);
+}
+.serv__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 10px;
+  height: 4px;
+  background: var(--paper-3);
+  transform: skewX(var(--skew));
+}
+
+.serv__price {
+  margin-top: auto;
+  padding-top: var(--s-2);
+  border-top: 1px solid var(--paper-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--s-1);
+}
+.serv__price-from {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.serv__price-main {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  letter-spacing: var(--track-display);
+}
+.serv__price-monthly {
+  flex-basis: 100%;
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+.servicios__note {
+  margin-top: var(--s-4);
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  max-width: var(--measure);
+}
+
+@media (min-width: 860px) {
+  .servicios__list { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- Cómo trabajo (Grid) --------------------------------------------- */
+
+.pasos { background: var(--paper-2); }
+
+/* El número y el espacio que se le reserva salen de la MISMA variable. */
+.pasos__list {
+  --num: clamp(2.5rem, 1.5rem + 4vw, 4rem);   /* 40 → 64px */
+  display: grid;
+  gap: var(--s-4);
+}
+
+.paso {
+  position: relative;
+  padding-left: calc(var(--num) * 1.15 + var(--s-2));
+}
+.paso__num {
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--num);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--paper-3);
+  transform: skewX(var(--skew));
+}
+.paso__title {
+  font-size: var(--t-md);
+  font-weight: 700;
+  margin-bottom: var(--s-1);
+}
+.paso p { color: var(--ink-2); max-width: var(--measure); }
+
+@media (min-width: 860px) {
+  .pasos__list { grid-template-columns: repeat(2, 1fr); gap: var(--s-5) var(--s-6); }
+}
+
+/* ---------- Garantía (Grid) -------------------------------------------------- */
+
+.garantia__list { display: grid; gap: var(--s-4); }
+.garantia__list h3 {
+  font-size: var(--t-md);
+  font-weight: 700;
+  margin-bottom: var(--s-1);
+}
+.garantia__list p { color: var(--ink-2); }
+
+@media (min-width: 860px) {
+  .garantia__list { grid-template-columns: repeat(3, 1fr); gap: var(--s-5); }
+}
+
+/* ---------- Footer (Grid) ---------------------------------------------------- */
+
+.footer {
+  padding-block: var(--s-5);
+  border-top: 1px solid var(--border);
+}
+.footer__inner {
+  display: grid;
+  gap: var(--s-2);
+  align-items: center;
+}
+.footer__meta { font-size: var(--t-sm); color: var(--ink-3); }
+.footer__meta a { font-weight: 600; color: var(--ink-2); }
+
+@media (min-width: 800px) {
+  .footer__inner {
+    grid-template-columns: auto 1fr auto;
+    gap: var(--s-4);
+  }
+}
