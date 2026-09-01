@@ -195,3 +195,257 @@ main > section { padding-block: var(--section-y); }
 }
 .logo__word-accent { color: var(--brand); }
 .logo--footer { font-size: 1.125rem; }
+
+/* ---------- Botones (Flexbox) --------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-1);
+  min-height: 44px;                    /* área táctil mínima */
+  padding: var(--s-1) var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+/* Verde WhatsApp con texto oscuro: el blanco sobre este verde da 2:1 y no
+   pasa AA. Con la tinta oscura da 9.4:1. */
+.btn--wa {
+  background: var(--whatsapp);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+.btn--wa:hover { background: #1fba59; box-shadow: var(--shadow-md); }
+.btn--wa:active { transform: translateY(1px); box-shadow: var(--shadow-sm); }
+
+.btn--sm { font-size: var(--t-sm); padding-inline: var(--s-2); }
+.btn--lg {
+  font-size: var(--t-md);
+  min-height: 60px;
+  padding-inline: var(--s-4);
+  width: 100%;
+}
+.btn--block { width: 100%; }
+
+.ico-wa { width: 1.25em; height: 1.25em; fill: currentColor; flex: none; }
+
+@media (min-width: 560px) {
+  .btn--lg { width: auto; }
+}
+
+/* ---------- Barra superior (Flexbox) -------------------------------------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--nav-h);
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.nav__links { display: none; }
+
+.nav .btn--wa { margin-left: auto; }
+
+@media (min-width: 900px) {
+  .nav__links {
+    display: flex;
+    gap: var(--s-4);
+    margin-left: var(--s-6);
+    font-size: var(--t-sm);
+    font-weight: 600;
+  }
+  .nav__links a {
+    text-decoration: none;
+    color: var(--ink-2);
+    padding-block: var(--s-1);
+    border-bottom: 2px solid transparent;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .nav__links a:hover { color: var(--ink); border-bottom-color: var(--brand); }
+}
+
+/* ---------- Hero (Flexbox en la copy) -------------------------------------- */
+
+.hero { padding-top: var(--s-5); }
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--t-2xl);
+  line-height: var(--lh-display);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  margin-bottom: var(--s-3);
+}
+.hero__title em { font-style: normal; color: var(--brand); }
+
+.hero__sub {
+  font-size: var(--t-md);
+  line-height: var(--lh-snug);
+  color: var(--ink-2);
+  max-width: var(--measure);
+  margin-bottom: var(--s-4);
+}
+
+.hero__cta { margin-bottom: var(--s-4); }
+
+.hero__micro {
+  margin-top: var(--s-2);
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+.hero__micro strong { color: var(--ink-2); }
+
+.hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.hero__proof li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+}
+/* Marca de verificación dibujada, no emoji. */
+.hero__proof li::before {
+  content: "";
+  width: 8px;
+  height: 14px;
+  border: solid var(--brand);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg) translateY(-2px);
+  flex: none;
+}
+
+.hero__ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticket__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  background: var(--ink);
+  color: var(--paper-3);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--track-label);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+}
+.ticket__lamp {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  flex: none;
+}
+
+/* ---------- FAQ (Flexbox en el summary) ------------------------------------ */
+
+.faq { background: var(--paper-2); }
+
+.qa {
+  background: var(--surface);
+  border: 1px solid var(--paper-3);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.qa summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--t-base);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--dur) var(--ease);
+}
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary:hover { background: var(--paper-2); }
+
+/* Cruz/menos dibujado con dos barras: sin emoji, sin fuente de íconos. */
+.qa summary::after {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background:
+    linear-gradient(var(--brand) 0 0) center / 100% 2.5px no-repeat,
+    linear-gradient(var(--brand) 0 0) center / 2.5px 100% no-repeat;
+}
+.qa[open] summary::after {
+  background: linear-gradient(var(--brand) 0 0) center / 100% 2.5px no-repeat;
+}
+
+.qa__body { padding: 0 var(--s-3) var(--s-3); }
+.qa__body p { color: var(--ink-2); }
+
+/* ---------- Cierre --------------------------------------------------------- */
+
+.cierre {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+}
+.cierre__title {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  margin-bottom: var(--s-2);
+}
+.cierre__sub {
+  color: var(--paper-3);
+  font-size: var(--t-md);
+  line-height: var(--lh-snug);
+  max-width: 46ch;
+  margin-inline: auto;
+  margin-bottom: var(--s-4);
+}
+.cierre__phone {
+  margin-top: var(--s-3);
+  font-size: var(--t-sm);
+  color: var(--paper-3);
+}
+.cierre__number {
+  font-family: var(--font-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  color: var(--paper);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  display: inline-block;
+  margin-top: var(--s-1);
+}
+.cierre :focus-visible { outline-color: var(--whatsapp); }
