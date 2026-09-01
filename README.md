@@ -40,7 +40,7 @@ y el footer (`.footer__inner`).
 
 ## ¿Qué variables CSS creamos?
 
-Todas viven en `:root`, al principio de `style.css`, agrupadas por categoría:
+Todas viven en `:root`, en `styles/tokens.css`, agrupadas por categoría:
 
 - **Color:** `--brand`, `--warm`, `--whatsapp`, la rampa neutra
   (`--paper`, `--ink`, etc.)
@@ -100,9 +100,11 @@ no depende de JavaScript para funcionar.
 
 ```
 leandev/
-├── img/            favicon y assets
-├── style.css       variables, reset y componentes
-├── index.html      markup y datos estructurados
+├── img/                favicon y assets
+├── styles/
+│   ├── tokens.css      variables de diseño (:root)
+│   └── styles.css      reset y componentes, consume las variables
+├── index.html          markup y datos estructurados
 ├── robots.txt
 ├── sitemap.xml
 └── README.md
