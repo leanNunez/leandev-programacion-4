@@ -1,0 +1,384 @@
+/* ========== NAVBAR CUSTOMIZADO ========== */
+
+.navbar {
+  background-color: var(--paper) !important;
+  border-bottom: 1px solid var(--paper-3) !important;
+  padding: 0.5rem var(--gutter);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin-right: var(--s-4);
+}
+
+.navbar-brand-text {
+  display: inline;
+}
+
+.navbar-brand-accent {
+  color: var(--brand);
+}
+
+.navbar-nav .nav-link {
+  color: var(--ink-2) !important;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  padding: var(--s-1) var(--s-2) !important;
+  text-decoration: none;
+  transition: color var(--dur) var(--ease), border-bottom-color var(--dur) var(--ease);
+  border-bottom: 2px solid transparent;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--ink) !important;
+  border-bottom-color: var(--brand);
+}
+
+/* Botón WhatsApp en navbar */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-1);
+  background-color: var(--whatsapp) !important;
+  color: var(--ink) !important;
+  border: 0;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  padding: var(--s-1) var(--s-2);
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.btn-wa:hover {
+  background-color: #1fba59 !important;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-wa:active {
+  transform: translateY(1px);
+}
+
+.ico-wa {
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+  flex: none;
+}
+
+/* Mobile: toggle button */
+.navbar-toggler {
+  border: 0;
+  padding: var(--s-1);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Collapse menu en mobile */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    margin-top: var(--s-2);
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar-nav .nav-link {
+    padding: var(--s-2) 0 !important;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: var(--s-1) var(--s-2);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: left var(--dur) var(--ease);
+}
+
+.skip-link:focus {
+  left: var(--s-2);
+  top: var(--s-2);
+}
+
+
+/* ========== HERO ========== */
+
+.hero {
+  padding-top: var(--s-5);
+  padding-bottom: var(--section-y);
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: var(--s-2);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--t-2xl);
+  line-height: var(--lh-display);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  margin-bottom: var(--s-3);
+  margin-top: 0;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--brand);
+}
+
+.hero__sub {
+  font-size: var(--t-md);
+  line-height: var(--lh-snug);
+  color: var(--ink-2);
+  max-width: var(--measure);
+  margin-bottom: var(--s-4);
+  margin-top: 0;
+}
+
+.hero__cta {
+  margin-bottom: var(--s-4);
+}
+
+.hero__micro {
+  margin-top: var(--s-2);
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.hero__micro strong {
+  color: var(--ink-2);
+}
+
+.hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--ink-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero__proof li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+}
+
+.hero__proof li::before {
+  content: "";
+  width: 8px;
+  height: 14px;
+  border: solid var(--brand);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg) translateY(-2px);
+  flex: none;
+}
+
+/* Ticket */
+.hero__ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticket {
+  position: relative;
+  width: min(320px, 100%);
+  filter: drop-shadow(0 12px 28px rgb(20 20 15 / 14%));
+}
+
+.ticket::before {
+  content: "";
+  position: absolute;
+  inset: 20px -7px -10px -7px;
+  z-index: -1;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-3);
+  border-radius: 2px;
+  transform: rotate(-2.5deg);
+}
+
+.ticket__paper {
+  position: relative;
+  --zig-w: 14px;
+  --zig-h: 8px;
+  background: #fffdf8;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgb(20 20 15 / 2%) 0 1px,
+    transparent 1px 7px
+  );
+  padding: var(--s-3) var(--s-2) var(--s-4);
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      top / var(--zig-w) var(--zig-h) repeat-x,
+    linear-gradient(#000 0 0)
+      center / 100% calc(100% - var(--zig-h) * 2) no-repeat,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--zig-w) var(--zig-h) repeat-x;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      top / var(--zig-w) var(--zig-h) repeat-x,
+    linear-gradient(#000 0 0)
+      center / 100% calc(100% - var(--zig-h) * 2) no-repeat,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--zig-w) var(--zig-h) repeat-x;
+}
+
+.ticket__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  background: var(--ink);
+  color: var(--paper-3);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--track-label);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+}
+
+.ticket__lamp {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  flex: none;
+}
+
+.ticket__printhead {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--brand);
+  box-shadow: 0 0 8px rgb(43 79 232 / 55%);
+  opacity: 0;
+  pointer-events: none;
+  animation: ticket-printhead 1620ms var(--ease) forwards;
+}
+
+.ticket__body {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.75;
+  color: #2a2a22;
+  white-space: pre;
+  overflow: hidden;
+}
+
+.ticket__line {
+  display: block;
+  opacity: 0;
+  animation: ticket-print 260ms var(--ease) forwards;
+  animation-delay: calc(var(--i) * 85ms);
+}
+
+.ticket__rule {
+  color: #a8a396;
+}
+
+.ticket__total {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+
+.ticket__note {
+  color: var(--ink-3);
+  font-size: 0.6875rem;
+}
+
+@keyframes ticket-print {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ticket-printhead {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  92% {
+    opacity: 1;
+    top: 100%;
+  }
+  100% {
+    opacity: 0;
+    top: 100%;
+  }
+}
+
+.ticket__caption {
+  margin-top: var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .hero {
+    padding-top: var(--s-6);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ticket__printhead {
+    display: none;
+  }
+
+  .ticket::before {
+    transform: none;
+  }
+
+  .ticket__line {
+    animation: none;
+    opacity: 1;
+  }
+}
