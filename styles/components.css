@@ -577,3 +577,21 @@
     font-size: var(--t-base);
   }
 }
+
+/* ========== GARANTÍA ========== */
+
+.garantia {
+  padding-block: var(--section-y);
+}
+
+.garantia h3 {
+  font-size: var(--t-md);
+  font-weight: 700;
+  margin-bottom: var(--s-1);
+  margin-top: 0;
+}
+
+.garantia p {
+  color: var(--ink-2);
+  margin: 0;
+}
