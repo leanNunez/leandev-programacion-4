@@ -1,3 +1,9 @@
+/* Igualar el padding lateral de Bootstrap con el gutter del diseño */
+.container {
+  padding-inline: var(--gutter);
+}
+
+
 /* ========== NAVBAR CUSTOMIZADO ========== */
 
 .navbar {
