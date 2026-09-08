@@ -222,85 +222,103 @@
     </div>
   </section>
 
-  <!-- ==================== 3. SERVICIOS ==================== -->
-  <section class="servicios" id="servicios" aria-labelledby="t-servicios">
-    <div class="wrap">
-      <p class="eyebrow">Lo que hago</p>
-      <h2 class="section-title" id="t-servicios">Tres cosas, y las tres andan</h2>
+ <!-- ==================== 3. SERVICIOS ==================== -->
+<section class="servicios" id="servicios" aria-labelledby="t-servicios">
+  <div class="container">
+    <p class="eyebrow">Lo que hago</p>
+    <h2 class="section-title" id="t-servicios">Tres cosas, y las tres andan</h2>
 
-      <div class="servicios__list">
+    <div class="row g-4">
 
-        <article class="serv">
-          <div class="serv__head">
-            <h3 class="serv__name">Bot de pedidos<br>para WhatsApp</h3>
-            <p class="serv__what">
+      <!-- Card 1: Bot de pedidos -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card serv h-100">
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title serv__name">Bot de pedidos<br>para WhatsApp</h3>
+            <p class="card-text serv__what">
               Contesta solo, toma el pedido completo y lo imprime en la
               comandera que ya tenés.
             </p>
-          </div>
-          <ul class="serv__bullets">
-            <li>Atiende a las 3 de la mañana y un sábado lleno igual que un martes vacío.</li>
-            <li>Te pasa la dirección, la forma de pago y el total ya calculado.</li>
-            <li>Vos ves todo, y podés meterte a responder cuando quieras.</li>
-          </ul>
-          <p class="serv__price">
-            <span class="serv__price-from">desde</span>
-            <span class="serv__price-main">$280.000</span>
-            <span class="serv__price-monthly">+ $95.000 por mes</span>
-          </p>
-          <a class="btn btn--wa btn--block" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20PEDIDOS." target="_blank" rel="noopener noreferrer">Preguntar por el bot</a>
-        </article>
 
-        <article class="serv">
-          <div class="serv__head">
-            <h3 class="serv__name">Sistema de clientes<br>y stock</h3>
-            <p class="serv__what">
+            <ul class="serv__bullets">
+              <li>Atiende a las 3 de la mañana y un sábado lleno igual que un martes vacío.</li>
+              <li>Te pasa la dirección, la forma de pago y el total ya calculado.</li>
+              <li>Vos ves todo, y podés meterte a responder cuando quieras.</li>
+            </ul>
+
+            <div class="serv__price mt-auto mb-3">
+              <span class="serv__price-from">desde</span>
+              <span class="serv__price-main">$280.000</span>
+              <span class="serv__price-monthly">+ $95.000 por mes</span>
+            </div>
+
+            <a class="btn btn-wa w-100" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20PEDIDOS." target="_blank" rel="noopener noreferrer">Preguntar por el bot</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Sistema de clientes y stock -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card serv h-100">
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title serv__name">Sistema de clientes<br>y stock</h3>
+            <p class="card-text serv__what">
               Buscás un cliente por nombre y en dos segundos ves todo lo que
               te compró y lo que te debe.
             </p>
-          </div>
-          <ul class="serv__bullets">
-            <li>Historial de compras y cuenta corriente, sin planillas sueltas.</li>
-            <li>Sabés qué tenés y qué se está por acabar sin ir al depósito.</li>
-            <li>Entra desde el celular del mostrador y desde la compu.</li>
-          </ul>
-          <p class="serv__price">
-            <span class="serv__price-from">desde</span>
-            <span class="serv__price-main">$350.000</span>
-            <span class="serv__price-monthly">+ $55.000 por mes</span>
-          </p>
-          <a class="btn btn--wa btn--block" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20CLIENTES." target="_blank" rel="noopener noreferrer">Preguntar por clientes y stock</a>
-        </article>
 
-        <article class="serv">
-          <div class="serv__head">
-            <h3 class="serv__name">Página web</h3>
-            <p class="serv__what">
+            <ul class="serv__bullets">
+              <li>Historial de compras y cuenta corriente, sin planillas sueltas.</li>
+              <li>Sabés qué tenés y qué se está por acabar sin ir al depósito.</li>
+              <li>Entra desde el celular del mostrador y desde la compu.</li>
+            </ul>
+
+            <div class="serv__price mt-auto mb-3">
+              <span class="serv__price-from">desde</span>
+              <span class="serv__price-main">$350.000</span>
+              <span class="serv__price-monthly">+ $55.000 por mes</span>
+            </div>
+
+            <a class="btn btn-wa w-100" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20CLIENTES." target="_blank" rel="noopener noreferrer">Preguntar por clientes y stock</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Página web -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card serv h-100">
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title serv__name">Página web</h3>
+            <p class="card-text serv__what">
               Para que cuando alguien busque lo que vos vendés en Tucumán,
               te encuentre a vos.
             </p>
-          </div>
-          <ul class="serv__bullets">
-            <li>Aparecés en Google y en el mapa, con tu dirección y tu horario.</li>
-            <li>Se ve bien en el celular, que es de donde te van a mirar.</li>
-            <li>Esta misma página que estás viendo la hice yo. Esto es lo que te entrego.</li>
-          </ul>
-          <p class="serv__price">
-            <span class="serv__price-from">desde</span>
-            <span class="serv__price-main">$250.000</span>
-            <span class="serv__price-monthly">+ $25.000 por mes</span>
-          </p>
-          <a class="btn btn--wa btn--block" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20WEB." target="_blank" rel="noopener noreferrer">Preguntar por la página</a>
-        </article>
 
+            <ul class="serv__bullets">
+              <li>Aparecés en Google y en el mapa, con tu dirección y tu horario.</li>
+              <li>Se ve bien en el celular, que es de donde te van a mirar.</li>
+              <li>Esta misma página que estás viendo la hice yo. Esto es lo que te entrego.</li>
+            </ul>
+
+            <div class="serv__price mt-auto mb-3">
+              <span class="serv__price-from">desde</span>
+              <span class="serv__price-main">$250.000</span>
+              <span class="serv__price-monthly">+ $25.000 por mes</span>
+            </div>
+
+            <a class="btn btn-wa w-100" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20info%20de%20WEB." target="_blank" rel="noopener noreferrer">Preguntar por la página</a>
+          </div>
+        </div>
       </div>
 
-      <p class="servicios__note">
-        El abono incluye la línea de WhatsApp, el servidor, los cambios que
-        necesites y soporte de lunes a sábado.
-      </p>
     </div>
-  </section>
+
+    <p class="servicios__note">
+      El abono incluye la línea de WhatsApp, el servidor, los cambios que
+      necesites y soporte de lunes a sábado.
+    </p>
+  </div>
+</section>
 
   <!-- ==================== 4. CÓMO TRABAJO ==================== -->
   <section class="pasos" id="como-trabajo" aria-labelledby="t-pasos">
