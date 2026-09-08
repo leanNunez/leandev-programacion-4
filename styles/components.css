@@ -383,6 +383,9 @@
   }
 }
 
+
+
+
 /* ========== FAQ ========== */
 
 .faq {
@@ -505,5 +508,66 @@
 @media (max-width: 991px) {
   .btn-lg {
     width: 100% !important;
+  }
+}
+
+/* ========== PROBLEMA ========== */
+
+.problema {
+  background: var(--warm-wash);
+  border-block: 1px solid color-mix(in srgb, var(--warm) 15%, transparent);
+  padding-block: var(--section-y);
+}
+
+.problema .section-title {
+  color: var(--warm);
+  max-width: 24ch;
+  margin-bottom: var(--s-5);
+}
+
+.pain {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-2);
+  align-items: start;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.pain p {
+  font-size: var(--t-md);
+  line-height: var(--lh-snug);
+  font-weight: 500;
+  margin: 0;
+  color: var(--ink);
+}
+
+.pain__obj {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.pain__obj svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: var(--warm);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 992px) {
+  .pain {
+    grid-template-columns: 1fr;
+    gap: var(--s-3);
+  }
+
+  .pain p {
+    font-size: var(--t-base);
   }
 }
