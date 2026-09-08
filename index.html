@@ -382,39 +382,90 @@
     </div>
   </section>
 
-  <!-- ==================== 6. PREGUNTAS FRECUENTES ==================== -->
-  <section class="faq" aria-labelledby="t-faq">
-    <div class="wrap wrap--narrow">
-      <h2 class="section-title" id="t-faq">Preguntas que me hacen siempre</h2>
+ <!-- ==================== 6. PREGUNTAS FRECUENTES(El accordion de Bootstrap requiere esta estructura de divs para funcionar) ==================== -->
+<section class="faq" aria-labelledby="t-faq">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-12">
+        <h2 class="section-title" id="t-faq">Preguntas que me hacen siempre</h2>
 
-      <div class="faq__list">
-        <details class="qa">
-          <summary>¿Tengo que cambiar cómo trabajo hoy?</summary>
-          <div class="qa__body"><p>No. Lo armo alrededor de lo que ya hacés. Si tomás los pedidos en un cuaderno y te sirve, el sistema convive con eso. La idea es sacarte trabajo, no darte uno nuevo.</p></div>
-        </details>
+        <div class="accordion accordion-flush" id="faqAccordion">
+          
+          <!-- Pregunta 1 -->
+          <div class="accordion-item qa">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                ¿Tengo que cambiar cómo trabajo hoy?
+              </button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body qa__body">
+                <p>No. Lo armo alrededor de lo que ya hacés. Si tomás los pedidos en un cuaderno y te sirve, el sistema convive con eso. La idea es sacarte trabajo, no darte uno nuevo.</p>
+              </div>
+            </div>
+          </div>
 
-        <details class="qa">
-          <summary>¿Qué pasa si se rompe un sábado a la noche?</summary>
-          <div class="qa__body"><p>Me escribís al mismo WhatsApp y lo resuelvo. El soporte de lunes a sábado está incluido en el abono, y un sábado a la noche es justamente cuando más lo necesitás.</p></div>
-        </details>
+          <!-- Pregunta 2 -->
+          <div class="accordion-item qa">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                ¿Qué pasa si se rompe un sábado a la noche?
+              </button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body qa__body">
+                <p>Me escribís al mismo WhatsApp y lo resuelvo. El soporte de lunes a sábado está incluido en el abono, y un sábado a la noche es justamente cuando más lo necesitás.</p>
+              </div>
+            </div>
+          </div>
 
-        <details class="qa">
-          <summary>¿Necesito comprar algo más?</summary>
-          <div class="qa__body"><p>No. La línea de WhatsApp y el lugar donde vive el sistema los pongo yo, y ya están incluidos en el abono mensual. Vos necesitás la comandera que ya tenés y un celular.</p></div>
-        </details>
+          <!-- Pregunta 3 -->
+          <div class="accordion-item qa">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                ¿Necesito comprar algo más?
+              </button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body qa__body">
+                <p>No. La línea de WhatsApp y el lugar donde vive el sistema los pongo yo, y ya están incluidos en el abono mensual. Vos necesitás la comandera que ya tenés y un celular.</p>
+              </div>
+            </div>
+          </div>
 
-        <details class="qa">
-          <summary>¿Y si después quiero agregar algo?</summary>
-          <div class="qa__body"><p>Los cambios entran en el abono. Si agregás productos, cambiás precios o querés que el bot pregunte algo distinto, me decís y lo hago.</p></div>
-        </details>
+          <!-- Pregunta 4 -->
+          <div class="accordion-item qa">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                ¿Y si después quiero agregar algo?
+              </button>
+            </h3>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body qa__body">
+                <p>Los cambios entran en el abono. Si agregás productos, cambiás precios o querés que el bot pregunte algo distinto, me decís y lo hago.</p>
+              </div>
+            </div>
+          </div>
 
-        <details class="qa">
-          <summary>¿Cuánto tarda en estar andando?</summary>
-          <div class="qa__body"><p>La demo te la armo en dos o tres días. Si decidís avanzar, el bot queda funcionando en una semana. El sistema de clientes y stock lleva un poco más porque hay que pasar lo que ya tenés.</p></div>
-        </details>
+          <!-- Pregunta 5 -->
+          <div class="accordion-item qa">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                ¿Cuánto tarda en estar andando?
+              </button>
+            </h3>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body qa__body">
+                <p>La demo te la armo en dos o tres días. Si decidís avanzar, el bot queda funcionando en una semana. El sistema de clientes y stock lleva un poco más porque hay que pasar lo que ya tenés.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ==================== 7. CIERRE ==================== -->
   <section class="cierre" id="contacto" aria-labelledby="t-cierre">
