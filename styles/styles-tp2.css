@@ -1,4 +1,13 @@
 /* ==========================================================================
+   CSS PURO DEL TP2 — CONSERVADO, NO ELIMINADO
+   --------------------------------------------------------------------------
+   Este archivo NO se carga en el TP3. Se mantiene como referencia del
+   trabajo original en CSS puro. El TP3 refactoriza la interfaz con Bootstrap
+   y estilos de apoyo en styles/components.css.
+   La etiqueta <link> que lo cargaba quedo comentada en index.html.
+   ========================================================================== */
+
+/* ==========================================================================
    LeanDev — Componentes
    Mobile-first. Todo valor sale de styles/tokens.css.
    ========================================================================== */
