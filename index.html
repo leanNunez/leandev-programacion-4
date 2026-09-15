@@ -512,8 +512,8 @@
  <!-- ==================== 7. CIERRE ==================== -->
 <section class="cierre" id="contacto" aria-labelledby="t-cierre">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-12 text-center">
+    <div class="row justify-content-center g-5">
+      <div class="col-lg-5 col-12">
         <h2 class="cierre__title" id="t-cierre">
           Contame qué te está complicando
         </h2>
@@ -521,6 +521,17 @@
           Diez minutos por WhatsApp y te digo si te puedo ayudar. Si no te puedo
           ayudar, también te lo digo.
         </p>
+
+        <div class="alert alert-light border-0 shadow-sm d-flex align-items-start gap-3 mb-4" role="note">
+          <svg class="flex-shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3 2"></path>
+          </svg>
+          <div>
+            <h3 class="h6 fw-bold mb-1">Horario de atención</h3>
+            <p class="mb-0">Lunes a sábado, de 09:00 a 20:00 h.</p>
+          </div>
+        </div>
 
         <a class="btn btn-wa btn-lg w-100 mb-4" href="https://wa.me/5493814627108?text=Hola%20Lean%2C%20quiero%20una%20demo%20gratis." target="_blank" rel="noopener noreferrer">
           <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1.01 2.54c.12.17 1.73 2.65 4.2 3.71.59.25 1.04.4 1.4.52.59.18 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
@@ -531,6 +542,55 @@
           O agendame:
           <a class="cierre__number" href="tel:+5493814627108">381&nbsp;462&#8209;7108</a>
         </p>
+      </div>
+
+      <div class="col-lg-6 col-12">
+        <form id="diagnosticoForm" class="bg-light text-dark rounded p-4 needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="nombre" class="form-label fw-semibold">Tu nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="name" required>
+            <div class="invalid-feedback">Decime tu nombre para poder contactarte.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="comercio" class="form-label fw-semibold">Nombre del comercio</label>
+            <input type="text" class="form-control" id="comercio" name="comercio" required>
+            <div class="invalid-feedback">Contame cómo se llama tu comercio.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="rubro" class="form-label fw-semibold">¿Qué tipo de comercio tenés?</label>
+            <select class="form-select" id="rubro" name="rubro" required>
+              <option value="" selected disabled>Elegí una opción</option>
+              <option>Rotisería o restaurante</option>
+              <option>Ferretería</option>
+              <option>Kiosco o almacén</option>
+              <option>Otro comercio</option>
+            </select>
+            <div class="invalid-feedback">Elegí el rubro de tu comercio.</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="problema" class="form-label fw-semibold">¿Qué te gustaría mejorar?</label>
+            <textarea class="form-control" id="problema" name="problema" rows="4" placeholder="Por ejemplo: recibo muchos pedidos por WhatsApp y no llego a responderlos." required></textarea>
+            <div class="invalid-feedback">Contame brevemente qué necesitás resolver.</div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" value="acepto" id="datosConsentimiento" required>
+            <label class="form-check-label small" for="datosConsentimiento">
+              Acepto que LeanDev use estos datos únicamente para responder mi consulta y contactarme sobre sus servicios. No se almacenan ni se comparten con terceros desde este sitio.
+            </label>
+            <div class="invalid-feedback">Necesitamos tu consentimiento para enviar la consulta.</div>
+          </div>
+
+          <button class="btn btn-wa w-100" type="submit">
+            Quiero recibir una recomendación
+          </button>
+          <div id="formSuccess" class="alert alert-success mt-3 mb-0 d-none" role="status">
+            Perfecto. Se abrió WhatsApp con tu consulta lista para enviar.
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -554,7 +614,8 @@
       <div class="col">
         <p class="footer__meta">
           Leandro Núñez · San Miguel de Tucumán, Argentina<br>
-          <a href="tel:+5493814627108">381&nbsp;462&#8209;7108</a>
+          <a href="tel:+5493814627108">381&nbsp;462&#8209;7108</a><br>
+          Atención: lunes a sábado · 09:00 a 20:00 h
         </p>
       </div>
     </div>
@@ -562,6 +623,32 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const diagnosticoForm = document.querySelector('#diagnosticoForm');
+  const formSuccess = document.querySelector('#formSuccess');
+
+  diagnosticoForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!diagnosticoForm.checkValidity()) {
+      event.stopPropagation();
+      diagnosticoForm.classList.add('was-validated');
+      return;
+    }
+
+    const datos = new FormData(diagnosticoForm);
+    const mensaje = [
+      'Hola Lean, quiero una recomendación para mi comercio.',
+      `Nombre: ${datos.get('nombre')}`,
+      `Comercio: ${datos.get('comercio')}`,
+      `Rubro: ${datos.get('rubro')}`,
+      `Necesito mejorar: ${datos.get('problema')}`
+    ].join('\n');
+
+    formSuccess.classList.remove('d-none');
+    window.open(`https://wa.me/5493814627108?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener,noreferrer');
+  });
+</script>
 
 </body>
 </html>
