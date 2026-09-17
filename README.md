@@ -8,7 +8,7 @@ Programación IV (TP1 + TP2).
 
 - Leandro Núñez
 - Nicolás Calderón
-- Lourdrigues
+- Lourdes Rodríguez
 
 ## Descripción
 
@@ -21,22 +21,52 @@ contacto directo por WhatsApp en cada sección.
 
 - HTML5 semántico
 - CSS3 (variables, Flexbox, Grid, Media Queries)
+- **Bootstrap 5.3.0** (CSS + `bootstrap.bundle.min.js`, vía CDN) — ver
+  [Migración a Bootstrap](#migración-a-bootstrap-tp2--tp3)
+- **JavaScript propio** (`js/main.js`): validación y envío del formulario de
+  contacto, cierre del navbar móvil, botón "volver arriba", scrollspy del
+  navbar y contador de caracteres — ver TP4 (JavaScript y DOM)
 - Google Fonts (Anton, Archivo, Space Mono)
-- Sin frameworks ni dependencias externas de JavaScript
+- Sin dependencias de build (sin bundler, sin paso de compilación)
+
+## Migración a Bootstrap (TP2 → TP3)
+
+El sitio se entregó en TP2 como CSS puro (sin frameworks) y se refactorizó en
+TP3 para usar Bootstrap. Este README describe el estado **actual** (TP3); el
+código del TP2 se conserva sin eliminar para que pueda revisarse.
+
+|                  | TP2 (original)                                   | TP3 (actual)                                                |
+|------------------|---------------------------------------------------|--------------------------------------------------------------|
+| Layout           | Flexbox y Grid propios (`.hero__grid`, `.nav__inner`, `.servicios__list`, etc.) | Grid de Bootstrap (`row`, `col-lg-*`, `col-md-*`) |
+| Componentes      | Clases propias en `styles/styles-tp2.css`         | Utilidades y componentes de Bootstrap + `styles/components.css` |
+| Accordion de FAQ | `<details>`/`<summary>` nativo (`.qa summary`)     | Componente `accordion` de Bootstrap (requiere JS)             |
+| JavaScript       | Ninguno                                            | `bootstrap.bundle.min.js` (incluye Popper) vía CDN            |
+
+**El CSS puro del TP2 no se borró**: vive en `styles/styles-tp2.css`, con un
+comentario en la cabecera que aclara que ya no se carga, y su `<link>` en
+`index.html` quedó comentado (no eliminado) para que la profesora pueda
+verlo y compararlo con la versión refactorizada.
 
 ## ¿Dónde utilizamos Flexbox?
 
-Como mecanismo de alineación en una sola dimensión: la barra de navegación
-(`.nav__inner`), los botones (`.btn`), la lista de garantías del hero
-(`.hero__proof`), el encabezado del ticket (`.ticket__head`) y el `summary`
-de cada pregunta frecuente (`.qa summary`).
+Las variables CSS (`tokens.css`) y algunos componentes de apoyo en
+`styles/components.css` siguen usando Flexbox como mecanismo de alineación en
+una sola dimensión (por ejemplo, `display: flex` en la navbar y en elementos
+del hero). El CSS puro del TP2 conservado en `styles/styles-tp2.css` usaba
+Flexbox en la barra de navegación (`.nav__inner`), los botones (`.btn`), la
+lista de garantías del hero (`.hero__proof`), el encabezado del ticket
+(`.ticket__head`) y el `summary` de cada pregunta frecuente (`.qa summary`).
 
 ## ¿Dónde utilizamos Grid?
 
-Como mecanismo de dos dimensiones: el layout de dos columnas del hero
-(`.hero__grid`), las tarjetas de servicios (`.servicios__list`), los pasos de
-"Cómo trabajo" (`.pasos__list`), las tarjetas de garantía (`.garantia__list`)
-y el footer (`.footer__inner`).
+El layout principal de dos columnas y las grillas de tarjetas ahora los
+resuelve el sistema de grid de Bootstrap (`row` + `col-lg-*`/`col-md-*`) en
+`index.html`. `styles/components.css` también usa `display: grid` para
+algunos bloques de apoyo. En el CSS puro del TP2 (`styles/styles-tp2.css`),
+Grid resolvía el layout de dos columnas del hero (`.hero__grid`), las
+tarjetas de servicios (`.servicios__list`), los pasos de "Cómo trabajo"
+(`.pasos__list`), las tarjetas de garantía (`.garantia__list`) y el footer
+(`.footer__inner`).
 
 ## ¿Qué variables CSS creamos?
 
@@ -93,18 +123,22 @@ python3 -m http.server 8080
 # http://localhost:8080
 ```
 
-O abrir `index.html` directamente en el navegador con doble clic — el sitio
-no depende de JavaScript para funcionar.
+O abrir `index.html` directamente en el navegador con doble clic — no hace
+falta un servidor para ver la página, aunque el formulario de contacto y las
+demás funcionalidades del TP4 sí necesitan JavaScript habilitado.
 
 ## Estructura
 
 ```
 leandev/
-├── img/                favicon y assets
+├── img/                    favicon y assets
+├── js/
+│   └── main.js             JS del sitio: formulario, navbar, scroll (TP4)
 ├── styles/
-│   ├── tokens.css      variables de diseño (:root)
-│   └── styles.css      reset y componentes, consume las variables
-├── index.html          markup y datos estructurados
+│   ├── tokens.css          variables de diseño (:root)
+│   ├── components.css      estilos de apoyo sobre Bootstrap (TP3, actual)
+│   └── styles-tp2.css      CSS puro del TP2, conservado sin cargarse
+├── index.html              markup, Bootstrap (CDN) y datos estructurados
 ├── robots.txt
 ├── sitemap.xml
 └── README.md

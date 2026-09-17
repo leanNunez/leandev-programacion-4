@@ -39,13 +39,7 @@ const navbarCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapseEl, 
 
 navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', () => {
-    if (navbarCollapseEl.classList.contains('show')) {
-      navbarCollapse.hide();
-    }
-  });
-});
-
-/* ---------- Formulario de diagnóstico: contador de caracteres ------------- */
+    if (navbarCollapseEl.classList.contains('show')) {/* ---------- Formulario de diagnóstico: contador de caracteres ------------- */
 
 const problemaTextarea = document.querySelector('#problema');
 const problemaContador = document.querySelector('#problemaContador');
@@ -54,3 +48,40 @@ const problemaMax = problemaTextarea.maxLength;
 problemaTextarea.addEventListener('input', () => {
   problemaContador.textContent = `${problemaTextarea.value.length} / ${problemaMax}`;
 });
+
+/* ---------- Botón flotante: volver arriba --------------------------------- */
+
+const botonVolverArriba = document.querySelector('#botonVolverArriba');
+
+window.addEventListener('scroll', () => {
+  botonVolverArriba.classList.toggle('btn-top--visible', window.scrollY > 600);
+});
+
+botonVolverArriba.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ---------- Navbar: resaltar el link activo según la sección visible ------ */
+
+const navLinksPorSeccion = new Map();
+document.querySelectorAll('.navbar-nav .nav-link[href^="#"]').forEach((link) => {
+  navLinksPorSeccion.set(link.getAttribute('href').slice(1), link);
+});
+
+const observadorSecciones = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const link = navLinksPorSeccion.get(entry.target.id);
+    if (!link) return;
+    link.classList.toggle('active', entry.isIntersecting);
+    link.toggleAttribute('aria-current', entry.isIntersecting);
+  });
+}, { rootMargin: '-50% 0px -50% 0px' });
+
+document.querySelectorAll('main section[id]').forEach((seccion) => {
+  observadorSecciones.observe(seccion);
+});
+      navbarCollapse.hide();
+    }
+  });
+});
+

@@ -88,7 +88,8 @@ body {
   border-bottom: 2px solid transparent;
 }
 
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
   color: var(--ink) !important;
   border-bottom-color: var(--brand);
 }
@@ -847,5 +848,44 @@ body {
 
   .footer__meta {
     text-align: center;
+  }
+}
+
+/* ========== BOTÓN VOLVER ARRIBA ========== */
+
+.btn-top {
+  position: fixed;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--brand);
+  color: var(--surface);
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.btn-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn-top:hover {
+  background-color: var(--brand-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-top {
+    transition: opacity var(--dur) linear;
   }
 }
