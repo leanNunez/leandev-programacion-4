@@ -44,3 +44,23 @@ navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
     }
   });
 });
+
+/* ---------- Navbar: resaltar el link activo según la sección visible ------ */
+
+const navLinksPorSeccion = new Map();
+document.querySelectorAll('.navbar-nav .nav-link[href^="#"]').forEach((link) => {
+  navLinksPorSeccion.set(link.getAttribute('href').slice(1), link);
+});
+
+const observadorSecciones = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const link = navLinksPorSeccion.get(entry.target.id);
+    if (!link) return;
+    link.classList.toggle('active', entry.isIntersecting);
+    link.toggleAttribute('aria-current', entry.isIntersecting);
+  });
+}, { rootMargin: '-50% 0px -50% 0px' });
+
+document.querySelectorAll('main section[id]').forEach((seccion) => {
+  observadorSecciones.observe(seccion);
+});

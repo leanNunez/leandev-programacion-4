@@ -88,7 +88,8 @@ body {
   border-bottom: 2px solid transparent;
 }
 
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
   color: var(--ink) !important;
   border-bottom-color: var(--brand);
 }
