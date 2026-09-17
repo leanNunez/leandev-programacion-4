@@ -39,7 +39,13 @@ const navbarCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapseEl, 
 
 navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', () => {
-    if (navbarCollapseEl.classList.contains('show')) {/* ---------- Formulario de diagnóstico: contador de caracteres ------------- */
+    if (navbarCollapseEl.classList.contains('show')) {
+      navbarCollapse.hide();
+    }
+  });
+});
+
+/* ---------- Formulario de diagnóstico: contador de caracteres ------------- */
 
 const problemaTextarea = document.querySelector('#problema');
 const problemaContador = document.querySelector('#problemaContador');
@@ -79,9 +85,5 @@ const observadorSecciones = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('main section[id]').forEach((seccion) => {
   observadorSecciones.observe(seccion);
-});
-      navbarCollapse.hide();
-    }
-  });
 });
 
