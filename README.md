@@ -8,7 +8,7 @@ Programación IV (TP1 + TP2).
 
 - Leandro Núñez
 - Nicolás Calderón
-- Lourdrigues
+- Lourdes Rodríguez
 
 ## Descripción
 
@@ -23,8 +23,11 @@ contacto directo por WhatsApp en cada sección.
 - CSS3 (variables, Flexbox, Grid, Media Queries)
 - **Bootstrap 5.3.0** (CSS + `bootstrap.bundle.min.js`, vía CDN) — ver
   [Migración a Bootstrap](#migración-a-bootstrap-tp2--tp3)
+- **JavaScript propio** (`js/main.js`): validación y envío del formulario de
+  contacto, cierre del navbar móvil, botón "volver arriba", scrollspy del
+  navbar y contador de caracteres — ver TP4 (JavaScript y DOM)
 - Google Fonts (Anton, Archivo, Space Mono)
-- Sin dependencias de build ni JavaScript propio (solo el bundle de Bootstrap)
+- Sin dependencias de build (sin bundler, sin paso de compilación)
 
 ## Migración a Bootstrap (TP2 → TP3)
 
@@ -120,14 +123,17 @@ python3 -m http.server 8080
 # http://localhost:8080
 ```
 
-O abrir `index.html` directamente en el navegador con doble clic — el sitio
-no depende de JavaScript para funcionar.
+O abrir `index.html` directamente en el navegador con doble clic — no hace
+falta un servidor para ver la página, aunque el formulario de contacto y las
+demás funcionalidades del TP4 sí necesitan JavaScript habilitado.
 
 ## Estructura
 
 ```
 leandev/
 ├── img/                    favicon y assets
+├── js/
+│   └── main.js             JS del sitio: formulario, navbar, scroll (TP4)
 ├── styles/
 │   ├── tokens.css          variables de diseño (:root)
 │   ├── components.css      estilos de apoyo sobre Bootstrap (TP3, actual)
