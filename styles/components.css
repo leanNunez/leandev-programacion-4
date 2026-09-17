@@ -124,7 +124,7 @@ body {
   flex: none;
 }
 
-/* Mobile: toggle button */
+/* Botón de apertura del menú (mobile) */
 .navbar-toggler {
   border: 0;
   padding: var(--s-1);
@@ -136,7 +136,7 @@ body {
   outline-offset: 3px;
 }
 
-/* Collapse menu en mobile */
+/* Menú colapsable en mobile */
 @media (max-width: 991px) {
   .navbar-collapse {
     margin-top: var(--s-2);
@@ -409,14 +409,14 @@ body {
   text-align: center;
 }
 
-/* Desktop */
+/* Escritorio */
 @media (min-width: 992px) {
   .hero {
     padding-top: var(--s-6);
   }
 }
 
-/* Reduced motion */
+/* Preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   .ticket__printhead {
     display: none;
@@ -444,7 +444,7 @@ body {
   text-align: center;
 }
 
-/* Accordion */
+/* Acordeón */
 .accordion {
   border: none;
 }
@@ -647,7 +647,7 @@ body {
   max-width: 24ch;
 }
 
-/* Card */
+/* Tarjeta */
 .card {
   background: var(--surface);
   border: 1px solid var(--paper-3);
