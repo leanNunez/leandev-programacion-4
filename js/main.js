@@ -45,6 +45,18 @@ navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
   });
 });
 
+/* ---------- Botón flotante: volver arriba --------------------------------- */
+
+const botonVolverArriba = document.querySelector('#botonVolverArriba');
+
+window.addEventListener('scroll', () => {
+  botonVolverArriba.classList.toggle('btn-top--visible', window.scrollY > 600);
+});
+
+botonVolverArriba.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 /* ---------- Navbar: resaltar el link activo según la sección visible ------ */
 
 const navLinksPorSeccion = new Map();
