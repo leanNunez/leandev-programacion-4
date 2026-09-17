@@ -572,8 +572,9 @@
 
           <div class="mb-4">
             <label for="problema" class="form-label fw-semibold">¿Qué te gustaría mejorar?</label>
-            <textarea class="form-control" id="problema" name="problema" rows="4" placeholder="Por ejemplo: recibo muchos pedidos por WhatsApp y no llego a responderlos." required></textarea>
+            <textarea class="form-control" id="problema" name="problema" rows="4" maxlength="300" placeholder="Por ejemplo: recibo muchos pedidos por WhatsApp y no llego a responderlos." required></textarea>
             <div class="invalid-feedback">Contame brevemente qué necesitás resolver.</div>
+            <p class="form-text text-end mb-0" id="problemaContador">0 / 300</p>
           </div>
 
           <div class="form-check mb-4">

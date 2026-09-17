@@ -39,10 +39,14 @@ const navbarCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapseEl, 
 
 navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', () => {
-    if (navbarCollapseEl.classList.contains('show')) {
-      navbarCollapse.hide();
-    }
-  });
+    if (navbarCollapseEl.classList.contains('show')) {/* ---------- Formulario de diagnóstico: contador de caracteres ------------- */
+
+const problemaTextarea = document.querySelector('#problema');
+const problemaContador = document.querySelector('#problemaContador');
+const problemaMax = problemaTextarea.maxLength;
+
+problemaTextarea.addEventListener('input', () => {
+  problemaContador.textContent = `${problemaTextarea.value.length} / ${problemaMax}`;
 });
 
 /* ---------- Botón flotante: volver arriba --------------------------------- */
@@ -76,3 +80,8 @@ const observadorSecciones = new IntersectionObserver((entries) => {
 document.querySelectorAll('main section[id]').forEach((seccion) => {
   observadorSecciones.observe(seccion);
 });
+      navbarCollapse.hide();
+    }
+  });
+});
+
