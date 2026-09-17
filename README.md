@@ -8,7 +8,7 @@ Programación IV (TP1 + TP2).
 
 - Leandro Núñez
 - Nicolás Calderón
-- Lourdrigues
+- Lourdes Rodríguez
 
 ## Descripción
 
