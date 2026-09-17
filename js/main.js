@@ -31,3 +31,16 @@ diagnosticoForm.addEventListener('submit', (event) => {
   formSuccess.classList.remove('d-none');
   window.open(`https://wa.me/5493814627108?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener,noreferrer');
 });
+
+/* ---------- Navbar: cerrar el menú móvil al clickear un link -------------- */
+
+const navbarCollapseEl = document.querySelector('#navbarNav');
+const navbarCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapseEl, { toggle: false });
+
+navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (navbarCollapseEl.classList.contains('show')) {
+      navbarCollapse.hide();
+    }
+  });
+});
