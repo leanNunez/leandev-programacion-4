@@ -44,3 +44,13 @@ navbarCollapseEl.querySelectorAll('.nav-link').forEach((link) => {
     }
   });
 });
+
+/* ---------- Formulario de diagnóstico: contador de caracteres ------------- */
+
+const problemaTextarea = document.querySelector('#problema');
+const problemaContador = document.querySelector('#problemaContador');
+const problemaMax = problemaTextarea.maxLength;
+
+problemaTextarea.addEventListener('input', () => {
+  problemaContador.textContent = `${problemaTextarea.value.length} / ${problemaMax}`;
+});
